@@ -1,0 +1,69 @@
+#user_register {
+  width: 100%;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  #user_register>mat-card {
+    width: 360px;
+    margin: auto;
+  }
+  #user_register #mat-tab-label-0-0 {
+    min-width: 170px;
+    width: 170px;
+  }
+}
+
+@media (min-width: 768px) {
+  #user_register>mat-card {
+    width: 400px;
+    margin: auto;
+  }
+  #user_register #mat-tab-label-0-0 {
+    min-width: 190px;
+    width: 190px;
+  }
+}
+
+
+#user_register>mat-card>mat-tab-group {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-checkbox {
+  float: left;
+}
+
+#register_submit>button {
+  width: 100%;
+}
+
+#user_register h6 {
+  text-align: center;
+  color: darkgray;
+}
+
+#social_button>div>button {
+  width: 100%;
+}
+#social_button>div {
+  width: 50%;
+  margin: 5px;
+}
+#social_button {
+  display: flex;
+}
+#register_confirm {
+  display: flex;
+  justify-content: space-between;
+}
+#social_button>div ion-icon {
+  font-size: 16px;
+  margin-right: 20px;
+  margin-top: -5px;
+}

@@ -1,0 +1,84 @@
+<div id="user_register">
+  <mat-card>
+    <mat-tab-group >
+      <mat-tab label="Email" >
+        <form id="register_submit" [formGroup]="signin" (ngSubmit)="onSubmit()">
+          <br><br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Ex. Rastislav" formControlName="name"
+                   [ngClass]="{'is-invalid': submitted && f.name.errors}">
+            <mat-error>
+              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Name is required</div>
+              </div>
+            </mat-error>
+          </mat-form-field>
+          <br><br>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Ex. pat@example.com" formControlName="email"
+                   [ngClass]="{'is-invalid': submitted && f.email.errors}">
+            <mat-error>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+              </div>
+            </mat-error>
+          </mat-form-field>
+
+          <br><br>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
+                   formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors}">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+              </div>
+            </mat-error>
+          </mat-form-field>
+          <br><br>
+
+          <mat-checkbox formControlName="acceptTerms"></mat-checkbox>
+          &nbsp; <label>I agree to <a href="#">Terms of Service</a> and <a href="#">Private Policy.</a></label>
+          <mat-error>
+            <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">
+              Accept Ts & Cs is required
+            </div>
+          </mat-error>
+          <br>
+          <button mat-flat-button
+                  type="submit" color="warn">Register
+          </button>
+        </form>
+        <br>
+        <h6>------------ &nbsp; or ------------</h6>
+
+        <div id="social_button">
+          <div>
+            <button mat-flat-button color="primary">
+              <ion-icon name="logo-facebook"></ion-icon>
+              FACEBOOK
+            </button>
+          </div>
+          <div>
+            <button mat-flat-button color="accent">
+              <ion-icon name="logo-google"></ion-icon>
+              G-Mail
+            </button>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div id="register_confirm">
+          <p>Already have an account?</p>
+          <p><a (click)="sign_in()">Log in</a></p>
+        </div>
+      </mat-tab>
+      <mat-tab label="Phone"> Phone Verify </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

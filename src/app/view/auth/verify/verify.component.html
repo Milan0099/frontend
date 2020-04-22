@@ -1,0 +1,25 @@
+<div id="user_verify">
+  <mat-card>
+    <h3>Email Verify</h3>
+    <hr>
+    <form id="email_verify" [formGroup]="email_verify" (ngSubmit)="onSubmit()">
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>verify</mat-label>
+        <input matInput placeholder="write your code" formControlName="code"
+               [ngClass]="{'is-invalid': submitted && f.code.errors}">
+        <mat-error>
+          <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+            <div *ngIf="f.code.errors.required">Code is required</div>
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <br><br>
+      <button mat-raised-button color="primary"
+              type="submit">Verify
+      </button>
+    </form>
+    <br>
+    <button mat-flat-button (click)="click_back()">Back</button>
+  </mat-card>
+</div>
