@@ -1,5 +1,5 @@
 .spacer {
-  flex: 1;
+  flex: 0.95;
 }
 
 .toolbar {
@@ -10,11 +10,15 @@
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
-  color: white;
+  background-color: #ffffff;
+  color: #1045ff;
   font-weight: 600;
+  filter: invert(1);
 }
-
+.spacer>p {
+  text-align: right;
+  margin-right: 20px;
+}
 .toolbar img {
   margin: 0 16px;
 }
