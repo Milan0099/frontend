@@ -1,14 +1,14 @@
-#user_verify {
+.user_verify {
   width: 100%;
   margin: auto;
 }
 
-#user_verify>mat-card {
+.user_verify>mat-card {
   width: 300px;
   margin: auto;
 }
 
-#user_register>mat-card>mat-tab-group {
+.user_register>mat-card>mat-tab-group {
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -17,14 +17,14 @@
   width: 100%;
 }
 
-#email_verify>button {
+.email_verify>button {
   width: 100%;
 }
 
-#user_verify h3 {
+.user_verify h3 {
   text-align: center;
   color: #1976d2;
 }
-#user_verify button {
+.user_verify button {
   width: 100%;
 }

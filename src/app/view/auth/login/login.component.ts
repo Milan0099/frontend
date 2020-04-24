@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit  {
     this.userService.login(_user[0])
       .pipe(first())
       .subscribe(res => {
-        console.log('res', res);
         if (res['success'] === true) {
           alert(res['msg']);
           this._router.navigate(['home'])

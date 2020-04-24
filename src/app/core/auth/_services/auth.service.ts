@@ -15,7 +15,6 @@ export class AuthService {
 
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-
   constructor(
     private http: HttpClient
   ) {
@@ -36,11 +35,9 @@ export class AuthService {
   }
 
   login(payload): Observable<any>  {
-    console.log(payload);
     return this.http.post(BASE_URL + 'login', payload)
       .pipe(map(res => {
         if (res['success'] === true) {
-          console.log('token', res['token']);
           localStorage.setItem('token', res['token']);
           localStorage.setItem('name', res['data'].name);
           this.currentUserSubject.next(res['token'])
