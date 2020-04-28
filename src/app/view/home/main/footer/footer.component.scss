@@ -1,0 +1,19 @@
+.footer {
+  background: #333333;
+  padding: 50px;
+}
+.footer>.container h1 {
+  color: white;
+}
+.footer>.container h3 {
+  color: green;
+}
+.social_icon>a>img {
+  filter: invert(0.2);
+}
+.social_icon>a {
+  margin-right: 20px;
+}
+.social_icon_img>a {
+  margin-right: 20px;
+}

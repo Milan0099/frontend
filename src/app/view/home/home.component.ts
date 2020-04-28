@@ -8,17 +8,8 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    private _router: Router
-  ) { }
-
-  name: string;
+  constructor() { }
 
   ngOnInit(): void {
-    this.name = localStorage.getItem('name')
-  }
-  logout() {
-    localStorage.clear();
-    this._router.navigate(['auth/login'])
   }
 }

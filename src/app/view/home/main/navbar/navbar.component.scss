@@ -1,0 +1,40 @@
+.nav mat-toolbar {
+  background: black;
+}
+.navigation-items{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar_item mat-icon {
+  color: white;
+}
+.navbar {
+  width: 100%;
+}
+.navbar>ul {
+  display: flex;
+  float: right;
+}
+.navbar>ul>li {
+  margin: 0 15px 0 15px;
+}
+.navbar>ul>li>a {
+  text-transform: capitalize;
+  font-size: 16px;
+}
+.navbar>ul>li>a>select {
+  background: black;
+  color: white;
+  font-size: 16px;
+  border: none;
+}
+mat-toolbar{
+  border-radius: 3px;
+}
+
+@media(max-width: 959px){
+  mat-toolbar{
+    border-radius: 0;
+  }
+}

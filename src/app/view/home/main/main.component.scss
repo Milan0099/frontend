@@ -1,0 +1,53 @@
+.main_page google-map>.map-container {
+  width: 100%!important;
+  height: 80vh!important;
+}
+.google_map_category>mat-card .container {
+  margin-top: 20px;
+}
+.google_map_category mat-form-field {
+  width: 100%;
+}
+.google_search_group>.search_button>button {
+  width: 100%;
+  color: white;
+  background: #48bf48;
+}
+
+.google_search_group>.advanced_filter>button {
+  width: 100%;
+  color: white;
+  background: darkgray;
+}
+.google_map_category>mat-card .item mat-icon {
+  color: darkgray;
+  font-size: 14px;
+}
+.google_map_category>mat-card .item .ng-tns-c69-3 {
+  margin-bottom: 4px;
+}
+.google_map_category>mat-card .item .mat-form-field-infix {
+  display: flex;
+}
+.google_search_group>div {
+  margin: 0;
+}
+
+@media (min-width: 1000px) {
+  .google_map_category>mat-card .item {
+    margin: 0 10px 0 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .google_map_category>mat-card .item {
+    margin: 0;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .google_map_category>mat-card .item {
+    margin: 0;
+  }
+}

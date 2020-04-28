@@ -14,9 +14,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { VerifyComponent } from './verify/verify.component';
-import {AuthGuard} from '../../core/auth/_guard/auth.guard';
-
-
 
 @NgModule({
   declarations: [

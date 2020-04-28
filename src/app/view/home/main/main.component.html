@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+
+<div class="main_page">
+  <div class="container"
+       fxLayout
+       fxLayout.xs="column"
+       fxLayoutAlign="center"
+       fxLayoutGap="10px"
+       fxLayoutGap.xs="0">
+    <div class="item item-1" fxFlex="50%">
+      <google-map></google-map>
+    </div>
+    <br>
+    <div class="item item-2" fxFlex="50%" fxFlexOrder="3">
+      <div class="google_map_category">
+        <mat-card>
+          <div class="container"
+               fxLayout
+               fxLayout.xs="column"
+               fxLayoutAlign="center"
+               fxLayoutGap="10px"
+               fxLayoutGap.xs="0">
+
+            <div class="item item-1" fxFlex="50%">
+              <mat-form-field class="example-full-width">
+                <mat-label>Category</mat-label>
+                <input matInput placeholder="Category" >
+                <mat-icon>view_list</mat-icon>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>Location</mat-label>
+                <input matInput placeholder="Location">
+                <mat-icon> location_on</mat-icon>
+              </mat-form-field>
+            </div>
+
+            <div class="item item-2" fxFlex="50%" fxFlexOrder="3">
+              <mat-form-field class="example-full-width">
+                <mat-label>Keyword</mat-label>
+                <input matInput placeholder="Keyword">
+                <mat-icon>search</mat-icon>
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Radius</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of radius" [value]="item.value">
+                    {{item.viewValue}}
+
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="google_search_group">
+            <div class="search_button">
+              <button mat-button>SEARCH</button>
+            </div>
+            <br>
+            <div class="advanced_filter">
+              <button mat-button>ADVANCED FILTER</button>
+            </div>
+          </div>
+
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

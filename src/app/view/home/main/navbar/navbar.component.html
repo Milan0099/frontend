@@ -1,0 +1,36 @@
+<div class="nav">
+  <mat-toolbar>
+    <div fxHide.gt-xs class="navbar_item">
+      <button mat-icon-button (click)="onToggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div>
+      <a>My Website</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs class="navbar">
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+        <li>
+          <a>
+            <select>
+              <option *ngFor="let language of states"
+                      [value]="language.name">
+                <img width="20" height="20" src="https://www.countryflags.io/us/flat/64.png" alt="test">
+                {{language.name}}
+              </option>
+            </select>
+          </a>
+        </li>
+        <li>
+          <a>{{name}} &nbsp; Profile</a>
+        </li>
+        <li>
+          <a>Submit Ads</a>
+        </li>
+        <li (click)="logout()">
+          <a>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar>
+</div>
