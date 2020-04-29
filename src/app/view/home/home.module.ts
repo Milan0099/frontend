@@ -52,6 +52,12 @@ import { MyProfileContactComponent } from './profile/my-profile/my-profile-conta
 import { MyProfileAboutComponent } from './profile/my-profile/my-profile-about/my-profile-about.component';
 import { MyProfileSocialComponent } from './profile/my-profile/my-profile-social/my-profile-social.component';
 import { MyProfilePasswordComponent } from './profile/my-profile/my-profile-password/my-profile-password.component';
+import { SubmitAdBasicComponent } from './profile/submit-ad/submit-ad-basic/submit-ad-basic.component';
+import { SubmitAdLocationComponent } from './profile/submit-ad/submit-ad-location/submit-ad-location.component';
+import { SubmitAdCategoryComponent } from './profile/submit-ad/submit-ad-category/submit-ad-category.component';
+import { SubmitAdMediaComponent } from './profile/submit-ad/submit-ad-media/submit-ad-media.component';
+import { SubmitAdTermsComponent } from './profile/submit-ad/submit-ad-terms/submit-ad-terms.component';
+import { SubmitAdFinalComponent } from './profile/submit-ad/submit-ad-final/submit-ad-final.component';
 const iconRetinaUrl = 'assets/leaflet/marker-icon-2x.png';
 const iconUrl = 'assets/leaflet/marker-icon.png';
 const shadowUrl = 'assets/leaflet/marker-shadow.png';
@@ -69,7 +75,7 @@ Marker.prototype.options.icon = iconDefault;
 
 
 @NgModule({
-  declarations: [MainComponent, NavbarComponent, FooterComponent, ProfileComponent, MyAdsComponent, MyProfileComponent, SubmitAdComponent, MyProfileBasicComponent, MyProfileContactComponent, MyProfileAboutComponent, MyProfileSocialComponent, MyProfilePasswordComponent],
+  declarations: [MainComponent, NavbarComponent, FooterComponent, ProfileComponent, MyAdsComponent, MyProfileComponent, SubmitAdComponent, MyProfileBasicComponent, MyProfileContactComponent, MyProfileAboutComponent, MyProfileSocialComponent, MyProfilePasswordComponent, SubmitAdBasicComponent, SubmitAdLocationComponent, SubmitAdCategoryComponent, SubmitAdMediaComponent, SubmitAdTermsComponent, SubmitAdFinalComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -88,6 +94,7 @@ Marker.prototype.options.icon = iconDefault;
     MatToolbarModule,
     MatSidenavModule,
     MatSelectModule,
+
 
     RouterModule.forChild([
       {

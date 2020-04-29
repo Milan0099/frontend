@@ -1,0 +1,22 @@
+.submit_ad_basic {
+  width: 90%;
+  margin: auto;
+  padding-top: 30px;
+}
+.submit_ad_basic_title .item-1 {
+  margin: 0 20px 0 0;
+}
+.submit_ad_basic_title .item-1>h3>span {
+  color: red;
+}
+.submit_ad_basic_title .item-1>mat-form-field {
+  width: 100%;
+}
+.submit_ad_basic_main>h3>span {
+  color: red;
+}
+.submit_ad_basic_title .item>button {
+  background: cornflowerblue;
+  color: white;
+  margin-bottom: 16px;
+}

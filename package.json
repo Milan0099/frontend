@@ -28,11 +28,11 @@
     "@types/leaflet": "^1.5.12",
     "ionicons": "^5.0.1",
     "leaflet": "^1.6.0",
+    "leaflet-ant-path": "latest",
     "ngx-toastr": "^12.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "leaflet-ant-path": "latest"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",
