@@ -1,10 +1,15 @@
 .nav mat-toolbar {
-  background: black;
+  background: #333333;
+  position: fixed;
+  z-index: 9999;
 }
 .navigation-items{
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+.nav>mat-toolbar div>a>h2 {
+  color: #f7e833;
 }
 .navbar_item mat-icon {
   color: white;
@@ -19,12 +24,15 @@
 .navbar>ul>li {
   margin: 0 15px 0 15px;
 }
+.navbar>ul>li>a>p {
+  color: white;
+}
 .navbar>ul>li>a {
   text-transform: capitalize;
   font-size: 16px;
 }
 .navbar>ul>li>a>select {
-  background: black;
+  background: #333333;
   color: white;
   font-size: 16px;
   border: none;

@@ -36,6 +36,14 @@ export class NavbarComponent implements OnInit {
     this.sidenavToggle.emit();
   };
 
+  home_page() {
+    this._router.navigate(['home'])
+  }
+
+  my_profile() {
+    this._router.navigate(['home/profile'])
+  }
+
   logout() {
     localStorage.clear();
     this._router.navigate(['auth/login'])

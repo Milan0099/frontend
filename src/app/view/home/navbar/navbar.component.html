@@ -6,7 +6,7 @@
       </button>
     </div>
     <div>
-      <a>My Website</a>
+      <a (click)="home_page()"><h2>My Website</h2></a>
     </div>
     <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs class="navbar">
       <ul fxLayout fxLayoutGap="15px" class="navigation-items">
@@ -22,13 +22,13 @@
           </a>
         </li>
         <li>
-          <a>{{name}} &nbsp; Profile</a>
+          <a (click)="my_profile()"><p>{{name}} &nbsp; Profile</p></a>
         </li>
         <li>
-          <a>Submit Ads</a>
+          <a><p>Submit Ads</p></a>
         </li>
         <li (click)="logout()">
-          <a>Logout</a>
+          <a><p>Logout</p></a>
         </li>
       </ul>
     </div>
