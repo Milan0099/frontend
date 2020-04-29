@@ -1,7 +1,10 @@
 .main_page {
   padding-top: 70px;
 }
-
+.main_map {
+  width: 100%;
+  height: 800px;
+}
 .main_page google-map>.map-container {
   width: 100%!important;
   height: 80vh!important;
@@ -28,7 +31,7 @@
   font-size: 14px;
 }
 .google_map_category>mat-card .item .ng-tns-c69-3 {
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 .google_map_category>mat-card .item .mat-form-field-infix {
   display: flex;

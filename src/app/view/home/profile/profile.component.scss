@@ -1,0 +1,99 @@
+.profile_map {
+  width: 100%;
+  height: 600px;
+}
+.profile_search {
+  width: 90%;
+  margin: auto;
+}
+.profile_search>.container .item>mat-form-field {
+  width: 100%;
+}
+.profile_search .item>mat-form-field .mat-form-field-infix {
+  display: flex;
+}
+.profile_search>.container .item {
+  margin: 20px;
+}
+.profile_search>.container .item-4 .ng-tns-c69-3 {
+  margin-bottom: 4.5px;
+}
+.profile_search>.container .item-5>button {
+  width: 100%;
+  background: #48bf48;
+  margin-top: 12px;
+  color: white;
+}
+.profile_title>mat-card h1 {
+  font-size: 30px;
+  margin: 0;
+}
+.profile_main {
+  width: 98%;
+  margin: auto;
+}
+.profile_img {
+  display: flex;
+}
+.profile_img>img {
+  border-radius: 50%;
+  border: 1px solid gray;
+  width: 40px;
+}
+.profile_list>ul {
+  list-style: none;
+  padding: 0;
+}
+.profile_list>ul>li>a>h3 {
+  color: black;
+  margin-top: 16px;
+}
+.profile_list>ul>li {
+  border-bottom: 1px solid lightgray;
+}
+.profile_main {
+  padding-bottom: 30px;
+}
+.profile_main .item-1>mat-card {
+  padding-bottom: 0;
+}
+.profile_main button {
+  float: right;
+  color: red;
+}
+.profile_list>ul>li>a {
+  display: flex;
+  justify-content: space-between;
+}
+.profile_list>ul>li>a>mat-checkbox {
+  margin-top: 15px;
+}
+.profile_list>ul>li>a>h3.active {
+  background: #e9ece3;
+}
+.profile_list>ul>li>a>mat-checkbox .mat-checkbox-frame {
+  border-radius: 50%;
+  border: none;
+  background: #16a778;
+}
+.profile_list>ul>li>a>mat-checkbox .mat-checkbox-background {
+  border-radius: 50%;
+  border: none;
+  background-color: #16a778;
+}
+@media (min-width: 768px) {
+  .profile_title>mat-card {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin: auto;
+  }
+}
+@media (max-width: 768px) {
+  .profile_title>mat-card {
+    display: flex;
+    justify-content: space-between;
+    width: 88%;
+    margin: auto;
+  }
+}

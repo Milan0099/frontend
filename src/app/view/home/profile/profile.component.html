@@ -1,5 +1,94 @@
 <app-navbar></app-navbar>
 
 <div class="profile">
-  <div class="map" #map id="map" style="width: 100%; height: 600px;"></div>
+  <div class="profile_map" id="profile_map" #map></div>
+  <div class="profile_search">
+    <div class="container"
+         fxLayout
+         fxLayout.xs="column"
+         fxLayoutAlign="center"
+         fxLayoutGap="10px"
+         fxLayoutGap.xs="0">
+      <div class="item item-1" fxFlex="20%">
+        <mat-form-field class="example-full-width">
+          <mat-label>Category</mat-label>
+          <input matInput placeholder="Category" >
+          <mat-icon>view_list</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="item item-2" fxFlex="20%">
+        <mat-form-field class="example-full-width">
+          <mat-label>Keyword</mat-label>
+          <input matInput placeholder="Keyword">
+          <mat-icon>search</mat-icon>
+        </mat-form-field>
+
+      </div>
+      <div class="item item-3" fxFlex="20%">
+        <mat-form-field class="example-full-width">
+          <mat-label>Location</mat-label>
+          <input matInput placeholder="Location">
+          <mat-icon> location_on</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="item item-4" fxFlex="20%">
+        <mat-form-field>
+          <mat-label>Radius</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let item of radius" [value]="item.value">
+              {{item.viewValue}}
+
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="item item-5" fxFlex="20%">
+        <button mat-button>SEARCH</button>
+      </div>
+    </div>
+  </div>
+  <div class="profile_title">
+    <mat-card>
+      <h1>Profile</h1>
+      <h4>Home &nbsp;/&nbsp; Profile</h4>
+    </mat-card>
+  </div>
+  <br>
+  <div class="profile_main">
+    <div class="container"
+         fxLayout
+         fxLayout.xs="column"
+         fxLayoutAlign="center"
+         fxLayoutGap="10px"
+         fxLayoutGap.xs="0">
+      <div class="item item-1" fxFlex="30%">
+        <mat-card>
+          <h2>
+            <ion-icon name="pencil-outline"></ion-icon> &nbsp;
+            Dashboard
+          </h2>
+          <hr>
+          <br>
+          <div class="profile_img">
+            <img src="assets/img/avatar.png" alt=""> &nbsp;
+            <h4>admin (1)</h4>
+          </div>
+          <br>
+          <hr>
+         <div class="profile_list">
+           <ul *ngFor="let item of colors">
+             <li><a><h3  [ngClass]="item.status===true?'active':''" (click)="change_tab(item.id)">{{item.title}}</h3><mat-checkbox *ngIf="item.status===true"></mat-checkbox></a></li>
+           </ul>
+         </div>
+        </mat-card>
+        <button (click)="logout()" mat-raised-button>Log Out</button>
+      </div>
+      <br>
+      <div class="item item-2" fxFlex="70%">
+        <app-my-ads *ngIf="colors[0].status===true" ></app-my-ads>
+        <app-my-profile *ngIf="colors[1].status===true" ></app-my-profile>
+        <app-submit-ad *ngIf="colors[2].status===true" ></app-submit-ad>
+      </div>
+    </div>
+  </div>
 </div>
