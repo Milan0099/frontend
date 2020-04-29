@@ -20,9 +20,16 @@ export class ProfileComponent implements OnInit {
     private _router: Router
   ) { }
   public colors = [
-    {id: 1, title: 'My Ass', status: false},
+    {id: 1, title: 'My Ads', status: false},
     {id: 2, title: 'My Profile', status: true},
     {id: 3, title: 'Submit Ad', status: false},
+  ];
+
+  radius: Radius[] = [
+    {value: '5', viewValue: 'Radius(5km)'},
+    {value: '10', viewValue: 'Radius(10km)'},
+    {value: '20', viewValue: 'Radius(20km)'},
+    {value: '30', viewValue: 'Radius(30km)'}
   ];
 
   map:any;
@@ -35,12 +42,6 @@ export class ProfileComponent implements OnInit {
     L.marker([46.947456, 7.451123]).bindPopup('<b>Hello!! Rastislav</b>').addTo(this.map);
   }
 
-  radius: Radius[] = [
-    {value: '5', viewValue: 'Radius(5km)'},
-    {value: '10', viewValue: 'Radius(10km)'},
-    {value: '20', viewValue: 'Radius(20km)'},
-    {value: '30', viewValue: 'Radius(30km)'}
-  ];
   logout() {
     localStorage.clear();
     this._router.navigate(['auth/login'])
