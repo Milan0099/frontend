@@ -1,0 +1,66 @@
+
+@media (min-width: 768px) {
+  .admin .container {
+    width: 60%;
+    margin: auto;
+  }
+}
+@media (max-width: 768px) {
+  .admin .container {
+    width: 100%;
+    margin: auto;
+  }
+  .logo>img {
+    width: 350px;
+  }
+}
+.admin .container>.logo {
+  text-align: center;
+}
+
+.admin_login {
+  width: 100%;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .admin_login>mat-card {
+    width: 360px;
+    margin: auto;
+  }
+  .admin_login #mat-tab-label-0-0 {
+    min-width: 170px;
+    width: 170px;
+  }
+}
+
+@media (min-width: 768px) {
+  .admin_login>mat-card {
+    width: 400px;
+    margin: auto;
+  }
+  .admin_login #mat-tab-label-0-0 {
+    min-width: 190px;
+    width: 190px;
+  }
+}
+
+
+.admin_login>mat-card>mat-tab-group {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+.login_submit>button {
+  width: 100%;
+}
+
+.admin_login h6 {
+  text-align: center;
+  color: darkgray;
+}

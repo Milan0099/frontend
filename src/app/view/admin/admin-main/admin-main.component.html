@@ -1,0 +1,24 @@
+<div class="admin_main">
+  <div class="container"
+       fxLayout
+       fxLayout.xs="column"
+       fxLayoutAlign="center"
+       fxLayoutGap="10px"
+       fxLayoutGap.xs="0">
+    <div class="item item-1" fxFlex="10%">
+      <div class="side_bar">
+        <ul >
+          <li *ngFor="let item of sidebar" (click)="change_page(item.id)" [ngClass]="item.status===true?'active':''"><mat-icon>{{item.icon}}</mat-icon> <span>{{item.name}}</span></li>
+          <li class="logout" (click)="logout()"><mat-icon>exit_to_app</mat-icon> <span>Log Out</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="item item-2" fxFlex="90%">
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 
 
 const BASE_URL = 'http://localhost:4201/api/users/';
+const ADMIN_URL = 'http://localhost:4201/api/admin/';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,21 @@ export class AuthService {
         }
         return res;
       }))
+  }
+
+  admin(payload): Observable<any> {
+    return this.http.post(ADMIN_URL + 'login', payload)
+      .pipe(map(res => {
+        if (res['success'] === true) {
+          localStorage.setItem('token', res['token']);
+          localStorage.setItem('role', res['data'].role);
+          this.currentUserSubject.next(res['token'])
+        }
+        return res
+      }))
+  }
+
+  getUsers() {
+    return this.http.get(ADMIN_URL + 'getUsers')
   }
 }

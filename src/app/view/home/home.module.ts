@@ -37,7 +37,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MainComponent } from './main/main.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
@@ -81,7 +80,6 @@ Marker.prototype.options.icon = iconDefault;
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    GoogleMapsModule,
     LeafletModule,
 
     MatCardModule,

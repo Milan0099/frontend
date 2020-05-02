@@ -8,7 +8,9 @@
        fxLayoutGap="10px"
        fxLayoutGap.xs="0">
     <div class="item item-1" fxFlex="50%">
-      <div class="main_map" id="main_map" #map></div>
+      <div class="main_map" id="main_map" #map
+
+      ></div>
     </div>
     <br>
     <div class="item item-2" fxFlex="50%" fxFlexOrder="3">
@@ -38,7 +40,7 @@
             <div class="item item-2" fxFlex="50%" fxFlexOrder="3">
               <mat-form-field class="example-full-width">
                 <mat-label>Keyword</mat-label>
-                <input matInput placeholder="Keyword">
+                <input matInput placeholder="Keyword" (keyup)="click_keyword($event.target.value)">
                 <mat-icon>search</mat-icon>
               </mat-form-field>
               <br>

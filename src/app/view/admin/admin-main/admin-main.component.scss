@@ -1,0 +1,54 @@
+.admin_main {
+  height: 100%;
+  background: #202533;
+}
+.side_bar {
+  margin: 0;
+  padding: 0;
+  //position: fixed;
+  //width: 180px;
+  //height: 100%;
+  background: #202533;;
+}
+.side_bar ul {
+  padding: 0;
+  margin: 0;
+}
+.side_bar ul li {
+  color: #7681aa;
+  list-style: none;
+  padding: 15px 10px 5px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid slateblue;
+}
+.side_bar ul li.active {
+  color: #16a778;
+}
+.side_bar ul li:hover {
+  color: white;
+  background: #333333;
+}
+.side_bar ul li:active {
+  color: #16a778;
+}
+.side_bar ul li mat-icon {
+  font-size: 14px;
+  vertical-align: -webkit-baseline-middle;
+}
+.side_bar ul li span {
+  font-size: 15px;
+}
+.logout {
+  position: absolute;
+  bottom: 10px;
+  width: 10rem;
+}
+.logout span {
+  color: red;
+}
+.logout mat-icon {
+  color: red;
+}
+.main {
+  color: white;
+}
