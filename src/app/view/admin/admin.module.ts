@@ -40,11 +40,12 @@ import { AdminMainComponent } from './admin-main/admin-main.component';
 import { UsersControlComponent } from './admin-main/users-control/users-control.component';
 import { DashboardComponent } from './admin-main/dashboard/dashboard.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AdvertiseComponent } from './admin-main/advertise/advertise.component';
 
 
 
 @NgModule({
-  declarations: [AdminLoginComponent, AdminMainComponent, UsersControlComponent, DashboardComponent],
+  declarations: [AdminLoginComponent, AdminMainComponent, UsersControlComponent, DashboardComponent, AdvertiseComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -19,8 +19,8 @@ export class AdminMainComponent implements OnInit {
   public sidebar=[
     {id: 1, icon: 'palette', name: 'Dashboard', status: false, url: 'admin/main'},
     {id: 2, icon: 'supervised_user_circle', name: 'User', status: false, url: 'admin/main/users'},
-    {id: 3, icon: 'how_to_reg', name: 'Profile', status: false, url: 'admin/main'},
-    {id: 4, icon: 'add_location', name: 'Ads', status: false, url: 'admin/main'},
+    {id: 3, icon: 'how_to_reg', name: 'Profile', status: false, url: 'admin/main/'},
+    {id: 4, icon: 'add_location', name: 'Ads', status: false, url: 'admin/main/advertise'},
     {id: 5, icon: 'spa', name: 'Submit', status: false, url: 'admin/main'},
   ];
   ngOnInit(): void {
@@ -38,6 +38,6 @@ export class AdminMainComponent implements OnInit {
 
   logout() {
     localStorage.clear();
-    this._router.navigate([''])
+    this._router.navigate(['admin'])
   }
 }

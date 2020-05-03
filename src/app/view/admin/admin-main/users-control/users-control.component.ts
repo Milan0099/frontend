@@ -13,7 +13,7 @@ import { AuthService } from '../../../../core/auth/_services';
 })
 export class UsersControlComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'email', 'role', 'active', 'action'];
+  displayedColumns: string[] = [ 'name', 'firstName', 'lastName', 'email', 'role', 'active', 'action'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -40,6 +40,8 @@ export class UsersControlComponent implements OnInit {
 
 
 export interface UserData {
+  firstName: string,
+  lastName: string,
   name: string;
   email: string;
   role: string;

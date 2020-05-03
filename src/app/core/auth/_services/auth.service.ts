@@ -19,7 +19,7 @@ export class AuthService {
   constructor(
     private http: HttpClient
   ) {
-    this.currentUserSubject  = new BehaviorSubject <any>(JSON.parse(localStorage.getItem('token')));
+    this.currentUserSubject  = new BehaviorSubject <any>(localStorage.getItem('token'));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -41,6 +41,8 @@ export class AuthService {
         if (res['success'] === true) {
           localStorage.setItem('token', res['token']);
           localStorage.setItem('name', res['data'].name);
+          localStorage.setItem('email', res['data'].email);
+          localStorage.setItem('role', res['data'].role);
           this.currentUserSubject.next(res['token'])
         }
         return res;
@@ -61,5 +63,9 @@ export class AuthService {
 
   getUsers() {
     return this.http.get(ADMIN_URL + 'getUsers')
+  }
+
+  add_profile(profile): Observable<any> {
+    return this.http.post(BASE_URL + 'add_profile', profile)
   }
 }

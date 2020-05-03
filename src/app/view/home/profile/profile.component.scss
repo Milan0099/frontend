@@ -15,12 +15,12 @@
 .profile_search>.container .item {
   margin: 20px;
 }
-.profile_search>.container .item-4 .ng-tns-c69-3 {
-  margin-bottom: 4.5px;
+.profile_search>.container .item-4 .mat-form-field-flex {
+  margin-bottom: 9px!important;
 }
 .profile_search>.container .item-5>button {
   width: 100%;
-  background: #48bf48;
+  background: #484cbf;
   margin-top: 12px;
   color: white;
 }
@@ -39,6 +39,7 @@
   border-radius: 50%;
   border: 1px solid gray;
   width: 40px;
+  margin-right: 20px;
 }
 .profile_list>ul {
   list-style: none;
@@ -74,12 +75,12 @@
 .profile_list>ul>li>a>mat-checkbox .mat-checkbox-frame {
   border-radius: 50%;
   border: none;
-  background: #16a778;
+  background: #484cbf;
 }
 .profile_list>ul>li>a>mat-checkbox .mat-checkbox-background {
   border-radius: 50%;
   border: none;
-  background-color: #16a778;
+  background-color: #484cbf;
 }
 @media (min-width: 768px) {
   .profile_title>mat-card {

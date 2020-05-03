@@ -1,4 +1,5 @@
 <div class="admin_main">
+  <h1>ichmachs24</h1>
   <div class="container"
        fxLayout
        fxLayout.xs="column"
@@ -7,7 +8,8 @@
        fxLayoutGap.xs="0">
     <div class="item item-1" fxFlex="10%">
       <div class="side_bar">
-        <ul >
+
+        <ul>
           <li *ngFor="let item of sidebar" (click)="change_page(item.id)" [ngClass]="item.status===true?'active':''"><mat-icon>{{item.icon}}</mat-icon> <span>{{item.name}}</span></li>
           <li class="logout" (click)="logout()"><mat-icon>exit_to_app</mat-icon> <span>Log Out</span></li>
         </ul>

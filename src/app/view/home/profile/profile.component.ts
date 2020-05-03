@@ -33,8 +33,11 @@ export class ProfileComponent implements OnInit {
   ];
 
   map:any;
+  current_role: string;
 
   ngOnInit(): void {
+    this.current_role = localStorage.getItem('role');
+
     this.map = L.map('profile_map').setView([46.204391, 6.143158], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

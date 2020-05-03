@@ -5,12 +5,12 @@
 .side_bar {
   margin: 0;
   padding: 0;
-  //position: fixed;
-  //width: 180px;
-  //height: 100%;
   background: #202533;;
 }
 .side_bar ul {
+  border-left: 1px solid slateblue;
+  border-top: 1px solid slateblue;
+  border-right: 1px solid slateblue;
   padding: 0;
   margin: 0;
 }
@@ -37,6 +37,15 @@
 }
 .side_bar ul li span {
   font-size: 15px;
+}
+.admin_main>h1 {
+  font-family: 'Pinyon Script';
+  font-size: 32px;
+  color: white;
+  padding: 20px 0 0 20px;
+}
+.admin_main .item {
+  margin: 5px;
 }
 .logout {
   position: absolute;
