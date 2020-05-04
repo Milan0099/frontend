@@ -6,3 +6,54 @@
 .submit_ad_main>mat-card .mat-tab-header-pagination {
   display: none;
 }
+.submit_ad_basic {
+  width: 90%;
+  margin: auto;
+  padding-top: 30px;
+}
+.submit_ad_basic_title .item-1 {
+  margin: 0 20px 0 0;
+}
+.submit_ad_basic_title .item-1>h3>span {
+  color: red;
+}
+.submit_ad_basic_title .item-1>mat-form-field {
+  width: 100%;
+}
+.submit_ad_basic_main>h3>span {
+  color: red;
+}
+.submit_ad_basic_title .item>button {
+  background: cornflowerblue;
+  color: white;
+  margin-bottom: 16px;
+}
+.submit_ad_basic_title .item>p {
+  color: darkgray;
+  font-size: 14px;
+}
+mat-form-field {
+  width: 100%;
+}
+.button_group {
+  display: flex;
+  float: right;
+  margin-right: 13px;
+}
+.button_group>div {
+  margin: 0 10px 0 10px;
+}
+.submit_final_price>div {
+  display: flex;
+  justify-content: space-between;
+}
+.button_group>div>button {
+  width: 100%;
+  background: #484cbf;
+  margin-top: 12px;
+  color: white;
+}
+.submit {
+  background: blue;
+  color: white;
+}

@@ -49,6 +49,14 @@ export class AuthService {
       }))
   }
 
+  add_profile(profile): Observable<any> {
+    return this.http.post(BASE_URL + 'add_profile', profile)
+  }
+
+  submit_adv(submit_info): Observable<any> {
+    return this.http.post(BASE_URL + 'submit_adv', submit_info)
+  }
+
   admin(payload): Observable<any> {
     return this.http.post(ADMIN_URL + 'login', payload)
       .pipe(map(res => {
@@ -63,9 +71,5 @@ export class AuthService {
 
   getUsers() {
     return this.http.get(ADMIN_URL + 'getUsers')
-  }
-
-  add_profile(profile): Observable<any> {
-    return this.http.post(BASE_URL + 'add_profile', profile)
   }
 }

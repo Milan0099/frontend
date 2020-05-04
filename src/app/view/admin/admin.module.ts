@@ -106,6 +106,10 @@ import { AdvertiseComponent } from './admin-main/advertise/advertise.component';
               {
                 path: 'users',
                 component: UsersControlComponent
+              },
+              {
+                path: 'advertise',
+                component: AdvertiseComponent
               }
             ]
           }
