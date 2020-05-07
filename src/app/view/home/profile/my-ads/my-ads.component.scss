@@ -27,3 +27,55 @@
     margin: 0 1px 0 1px;
   }
 }
+.my_ads_main a>p {
+  text-align: right;
+  font-weight: bold;
+}
+.my_ads_main a>p mat-icon{
+  vertical-align: middle;
+}
+
+.my_ads_view {
+  display: flex;
+}
+.my_ads_view>div img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.adv_main_body {
+  width: 100%;
+}
+.my_ads_main mat-card a>p {
+  margin-bottom: 0;
+}
+.my_ads_view>div p>span {
+  color: #f7c027;
+  font-size: 18px;
+}
+.adv_main_body>div {
+  display: flex;
+  justify-content: space-between;
+}
+.adv_main_body>div>p>button.Expired {
+  background: #e4bb47;
+  color: white;
+}
+.adv_main_body>div>p>button.Pending {
+  background: #0e2dc7;
+  color: white;
+}
+.adv_main_body>div>p>button.Active {
+  background: red;
+  color: white;
+}
+.adv_main_body>div>p>button.Off {
+  background: gray;
+  color: white;
+}
+.adv_main_body>div>p>button.Not {
+  background: white;
+  color: black;
+}

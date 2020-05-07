@@ -10,4 +10,24 @@
       </h4>
     </mat-card>
   </div>
+  <br>
+  <div class="my_ads_main">
+      <div *ngFor="let item of myAdv">
+        <mat-card>
+          <a><p>Edit<mat-icon>arrow_right_alt</mat-icon></p></a>
+          <div class="my_ads_view">
+            <div> <img src="http://localhost:4201/upload/{{item.featuredImage}}" alt=""></div>
+            <div class="adv_main_body">
+              <h2>{{item.title}}</h2>
+              <h4 [innerHTML] = "item.description"></h4>
+              <div>
+                <p><span>CHF{{item.price}}</span></p>
+                <p><button mat-button [ngClass]="item.status">{{item.status}}</button></p>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+        <br>
+      </div>
+  </div>
 </div>

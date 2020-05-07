@@ -83,7 +83,7 @@
                         </mat-form-field>
                         <p>Input price of the product/service you are offering(number only). Put 0 for free</p>
                         <br>
-                        <mat-checkbox formControlName="call_info" [ngClass]="{'is-inValid': submitted && f.call_info.errors}">Call For Info</mat-checkbox>
+                        <mat-checkbox formControlName="call_info" [ngClass]="{'is-inValid': submitted && f.call_info.errors}"><h3>Call For Info</h3></mat-checkbox>
                         <mat-error>
                           <div *ngIf="submitted && f.call_info.errors" class="invalid-feedback">
                             <div *ngIf="f.call_info.errors.required">
@@ -163,7 +163,7 @@
                 <br>
                 <mat-label>-Select-</mat-label>
                 <mat-select formControlName="category" [ngClass]="{'is-invalid': submitted && f.category.errors}">
-                  <mat-option *ngFor="let item of category" [value]="item.value">
+                  <mat-option *ngFor="let item of category" [value]="item.viewValue">
                     {{item.viewValue}}
                   </mat-option>
                 </mat-select>
@@ -202,7 +202,7 @@
               </p>
               <br>
               <h3>Ad Videos(Max 1 video)</h3>
-              <input type="file" formControlName="ad_video" (change)="getVideFile($event)" [ngClass]="{'is-invalid': submitted && f.ad_video.errors}">
+              <input type="file" formControlName="ad_video" (change)="getVideoFile($event)" [ngClass]="{'is-invalid': submitted && f.ad_video.errors}">
               <mat-error>
                 <div *ngIf="submitted && f.ad_video.errors">
                   <div *ngIf="f.ad_video.errors.required">

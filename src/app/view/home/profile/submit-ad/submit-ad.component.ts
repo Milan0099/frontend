@@ -44,7 +44,8 @@ export class SubmitAdComponent implements OnInit {
   user_file: File;
   images = [];
   imageNames = [];
-  myVideo = [];
+  multiImage = [];
+  myVideo: File;
   ckeditor: string;
 
   ngOnInit() {
@@ -93,8 +94,8 @@ export class SubmitAdComponent implements OnInit {
   }
 
   featuredImageUpload(ev) {
-    console.log(ev.target.files[0].name);
-    this.user_file = ev.target.files[0].name;
+    console.log(ev.target.files[0]);
+    this.user_file = ev.target.files[0];
   }
 
   advertiseImage(event) {
@@ -110,15 +111,15 @@ export class SubmitAdComponent implements OnInit {
           })
         };
         reader.readAsDataURL(event.target.files[i]);
-        console.log('multi-upload',event.target.files[i]);
         this.imageNames.push(event.target.files[i].name);
+        this.multiImage.push(event.target.files[i]);
       }
     }
-    console.log(this.imageNames);
   }
 
-  getVideFile(event) {
+  getVideoFile(event) {
     console.log(event.target.files[0].name);
+    this.myVideo = event.target.files[0]
   }
 
   onSubmit() {
@@ -126,14 +127,29 @@ export class SubmitAdComponent implements OnInit {
     if (this.submit_ad.invalid) {
       return;
     }
+
     this.submit_ad.value['email'] = this.current_email;
     this.submit_ad.value['ckeditor'] = this.ckeditor;
-    this.submit_ad.value['featured_image'] = this.submit_ad.value['featured_image'].slice(12, 100);
-    this.submit_ad.value['ad_image'] = this.submit_ad.value['ad_image'].slice(12, 100);
+    this.submit_ad.value['featured_image'] = this.submit_ad.value['featured_image'].slice(12,100);
     this.submit_ad.value['ad_video'] = this.submit_ad.value['ad_video'].slice(12, 100);
-    this.submit_ad.value['images[]'] = this.imageNames;
+    this.submit_ad.value['images'] = this.imageNames;
 
-    console.log(this.submit_ad.value);
-    this.userService.submit_adv(this.submit_ad.value)
+    this.userService.submit_adv(this.submit_ad.value).subscribe(res => {
+
+      if (res.success === true) {
+        this.userService.upload_advertise(this.user_file).subscribe(res => {
+          console.log('successfully upload', res)
+        });
+
+        this.userService.multi_image(this.multiImage).subscribe(res => {
+          console.log('successfully multi image uploaded', res)
+        });
+
+        this.userService.upload_video(this.myVideo).subscribe(res => {
+          console.log('video uploaded', res);
+            window.history.go(0)
+        })
+      }
+    });
   }
 }

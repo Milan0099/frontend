@@ -7,6 +7,7 @@ import { AuthComponent } from './view/auth/auth.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './view/admin/admin.component';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AdminComponent } from './view/admin/admin.component';
     HomeComponent,
     AuthComponent,
     AdminComponent,
+    SafeHtmlPipe,
   ],
   imports: [
     AppRoutingModule,
