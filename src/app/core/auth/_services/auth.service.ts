@@ -105,6 +105,14 @@ export class AuthService {
     return this.http.post(BASE_URL + 'myAdvStatus', status)
   }
 
+  getAllInfo(payload): Observable<object> {
+    return this.http.post(BASE_URL + 'getAllInfo', payload)
+  }
+
+  delete(payload): Observable<object> {
+    return this.http.post(BASE_URL + 'delete', payload)
+  }
+
   admin(payload): Observable<any> {
     return this.http.post(ADMIN_URL + 'login', payload)
       .pipe(map(res => {

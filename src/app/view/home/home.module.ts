@@ -52,6 +52,7 @@ import { MyProfileAboutComponent } from './profile/my-profile/my-profile-about/m
 import { MyProfileSocialComponent } from './profile/my-profile/my-profile-social/my-profile-social.component';
 import { MyProfilePasswordComponent } from './profile/my-profile/my-profile-password/my-profile-password.component';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { DeleteProfileComponent } from './profile/delete-profile/delete-profile.component';
 const iconRetinaUrl = 'assets/leaflet/marker-icon-2x.png';
 const iconUrl = 'assets/leaflet/marker-icon.png';
 const shadowUrl = 'assets/leaflet/marker-shadow.png';
@@ -69,7 +70,7 @@ Marker.prototype.options.icon = iconDefault;
 
 
 @NgModule({
-  declarations: [MainComponent, NavbarComponent, FooterComponent, ProfileComponent, MyAdsComponent, MyProfileComponent, SubmitAdComponent, MyProfileBasicComponent, MyProfileContactComponent, MyProfileAboutComponent, MyProfileSocialComponent, MyProfilePasswordComponent],
+  declarations: [MainComponent, NavbarComponent, FooterComponent, ProfileComponent, MyAdsComponent, MyProfileComponent, SubmitAdComponent, MyProfileBasicComponent, MyProfileContactComponent, MyProfileAboutComponent, MyProfileSocialComponent, MyProfilePasswordComponent, DeleteProfileComponent],
   imports: [
     CommonModule,
     FormsModule,

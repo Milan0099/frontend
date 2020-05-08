@@ -1,0 +1,26 @@
+<div class="delete_profile">
+  <div class="delete_profile_title">
+    <mat-card>
+      <h3>
+        <ion-icon name="pencil-outline"></ion-icon>&nbsp;
+        My Ads
+      </h3>
+    </mat-card>
+  </div>
+  <br>
+  <div class="delete_profile_main">
+    <mat-card>
+      <h1>My Email is <b>{{myEmail}}</b></h1>
+      <br>
+      <h2>My adv is <b>{{totalAdv}}</b> </h2>
+      <br>
+      <h2>
+        Do you want to delete your account eventhough?
+      </h2>
+      <div class="button_group">
+        <button mat-flat-button color="primary" (click)="back_button()">Back</button>
+        <button mat-flat-button color="warn" (click)="delete()">Ok</button>
+      </div>
+    </mat-card>
+  </div>
+</div>

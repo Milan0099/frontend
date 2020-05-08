@@ -15,7 +15,7 @@ export class ResetPasswordComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: AuthService,
-    private dialog: MatDialog,
+    private dialog: MatDialogRef<ResetPasswordComponent>,
     private _router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {
@@ -47,7 +47,7 @@ export class ResetPasswordComponent implements OnInit {
     this.userService.resetPassword(this.resetPassword.value).subscribe(res => {
       if (res['success'] === true) {
         alert(res['msg']);
-
+        this.dialog.close();
         this._router.navigate(['auth/login'])
       }
     })
