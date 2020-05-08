@@ -80,8 +80,11 @@ export class LoginComponent implements OnInit  {
       })
   }
 
-
   sign_up() {
     this._router.navigate([''])
+  }
+
+  confirmEmail() {
+    this._router.navigate(['auth/confirmEmail'])
   }
 }

@@ -32,7 +32,7 @@
 
           <div class="forget_password">
               <mat-checkbox><label>Keep me logged in</label></mat-checkbox>
-              <p><a>Forgot Password?</a></p>
+              <p (click)="confirmEmail()"><a>Forgot Password?</a></p>
           </div>
           <br><br>
           <button mat-flat-button
@@ -40,7 +40,7 @@
           </button>
         </form>
         <br>
-        <h6>------------ &nbsp; or ------------</h6>
+        <h6>------------ or ------------</h6>
 
         <div class="social_button">
           <div>

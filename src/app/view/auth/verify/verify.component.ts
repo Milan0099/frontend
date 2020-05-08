@@ -17,19 +17,19 @@ export class VerifyComponent implements OnInit {
     private _router: Router
   ) { }
 
-  email_verify: FormGroup;
+  emailVerify: FormGroup;
   submitted = false;
   ngOnInit(): void {
-    this.email_verify = this.formBuilder.group({
+    this.emailVerify = this.formBuilder.group({
       code: ['', Validators.required],
     });
   }
 
-  get f() {return this.email_verify.controls}
+  get f() {return this.emailVerify.controls}
 
   onSubmit() {
     this.submitted = true;
-    if (this.email_verify.invalid) {
+    if (this.emailVerify.invalid) {
       return;
     }
     const code = this.f.code.value;

@@ -1,0 +1,30 @@
+.confirm_password {
+  width: 100%;
+  margin: auto;
+}
+
+.confirm_password>mat-card {
+  width: 300px;
+  margin: auto;
+}
+
+.user_register>mat-card>mat-tab-group {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.confirm_email>button {
+  width: 100%;
+}
+
+.confirm_password h3 {
+  text-align: center;
+  color: #1976d2;
+}
+.confirm_password button {
+  width: 100%;
+}

@@ -51,6 +51,22 @@ export class AuthService {
       }));
   }
 
+  confirmEmail(payload): Observable<object> {
+    return this.http.post(BASE_URL + 'confirmEmail', payload)
+  }
+
+  rVerify(payload): Observable<object> {
+    return this.http.post(BASE_URL + 'rVerify', payload)
+  }
+
+  confirmVerify(payload): Observable<object> {
+    return this.http.post(BASE_URL + 'confirmVerify', payload)
+  }
+
+  resetPassword(payload): Observable<object> {
+    return this.http.post(BASE_URL + 'resetPassword', payload)
+  }
+
   add_profile(profile): Observable<any> {
     return this.http.post(BASE_URL + 'add_profile', profile);
   }

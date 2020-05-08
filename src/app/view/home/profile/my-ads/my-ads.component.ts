@@ -21,11 +21,8 @@ export class MyAdsComponent implements OnInit {
 
   style: Styles[] = [
     {id: 1, name: 'All', status: true},
-    {id: 2, name: 'Pending', status: false},
-    {id: 3, name: 'Expired', status: false},
-    {id: 4, name: 'Active', status: false},
-    {id: 5, name: 'Off', status: false},
-    {id: 6, name: 'Not Paid', status: false},
+    {id: 2, name: 'Expired', status: false},
+    {id: 3, name: 'Active', status: false},
   ];
 
   current_email: string;

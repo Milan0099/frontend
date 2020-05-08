@@ -11,286 +11,208 @@
   <div class="submit_ad_main">
     <mat-card>
       <form [formGroup]="submit_ad" (ngSubmit)="onSubmit()">
-        <mat-tab-group (selectedTabChange)="tabClick($event)" #matgroup>
-          <mat-tab label="1.Basic">
-              <div class="submit_ad_basic">
-                  <div class="submit_ad_basic_title">
-                    <div class="container"
-                         fxLayout
-                         fxLayout.xs="column"
-                         fxLayoutAlign="center"
-                         fxLayoutGap="20px"
-                         fxLayoutGap.xs="0">
-                      <div class="item item-1" fxFlex="50%">
-                        <h3>Ad Title <span>*</span></h3>
-                        <mat-form-field class="example-full-width">
-                          <mat-label>Ad Title</mat-label>
-                          <input matInput placeholder="Ad Title" formControlName="title" [ngClass]="{'is-invalid': submitted && f.title.errors}" />
-                          <mat-error>
-                            <div *ngIf="submitted && f.title.errors">
-                              <div *ngIf="f.title.errors.required">Ad Title is required</div>
-                            </div>
-                          </mat-error>
-                        </mat-form-field>
-                        <p>Input title of the ad which must be unique</p>
-                      </div>
-                      <div class="item item-2" fxFlex="50%">
-                        <h3>Featured Image</h3>
-                        <input type="file"  class="form-control" formControlName="featured_image" [ngClass]="{'is-invalid': submitted && f.featured_image.errors}" (change)="featuredImageUpload($event)" />
-                        <mat-error>
-                          <div *ngIf="submitted && f.featured_image.errors" class="invalid-feedback">
-                            <div *ngIf="f.featured_image.errors.required">Featured Image is required</div>
-                          </div>
-                        </mat-error>
-                        <br><br>
-                        <P>Select featured image for the ad</P>
-                      </div>
+        <div class="submit_ad_basic">
+          <div class="submit_ad_basic_title">
+            <div class="container"
+                 fxLayout
+                 fxLayout.xs="column"
+                 fxLayoutAlign="center"
+                 fxLayoutGap="20px"
+                 fxLayoutGap.xs="0">
+              <div class="item item-1" fxFlex="50%">
+                <h3>Ad Title <span>*</span></h3>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Ad Title</mat-label>
+                  <input matInput placeholder="Ad Title" formControlName="title" [ngClass]="{'is-invalid': submitted && f.title.errors}" />
+                  <mat-error>
+                    <div *ngIf="submitted && f.title.errors">
+                      <div *ngIf="f.title.errors.required">Ad Title is required</div>
                     </div>
-                  </div>
-                  <div class="submit_ad_basic_main">
-                    <h3>Ad Description <span>*</span></h3>
-                  </div>
-                  <ckeditor (change)="onChange($event)"></ckeditor>
-                  <br>
-                  <div class="submit_ad_basic_price">
-                    <h3>Tags</h3>
-                    <mat-form-field class="example-full-width">
-                      <mat-label>Tags</mat-label>
-                      <input matInput placeholder="Tags" formControlName="tags" [ngClass]="{'is-invalid': submitted && f.tags.errors}">
-                      <mat-error>
-                        <div *ngIf="submitted && f.tags.errors">
-                          <div *ngIf="f.tags.errors.required">Tags is required</div>
-                        </div>
-                      </mat-error>
-                    </mat-form-field>
-                    <p>Input comma separated tags</p>
-                    <div class="container"
-                         fxLayout
-                         fxLayout.xs="column"
-                         fxLayoutAlign="center"
-                         fxLayoutGap="20px"
-                         fxLayoutGap.xs="0">
-                      <div class="item item-1" fxFlex="50%">
-                        <h3>Price</h3>
-                        <mat-form-field class="example-full-width">
-                          <mat-label>Price</mat-label>
-                          <input matInput type="number" placeholder="Price" formControlName="price" [ngClass]="{'is-invalid': submitted && f.price.errors}">
-                          <mat-error>
-                            <div *ngIf="submitted && f.price.errors">
-                              <div *ngIf="f.price.errors.required">Ad Title is required</div>
-                            </div>
-                          </mat-error>
-                        </mat-form-field>
-                        <p>Input price of the product/service you are offering(number only). Put 0 for free</p>
-                        <br>
-                        <mat-checkbox formControlName="call_info" [ngClass]="{'is-inValid': submitted && f.call_info.errors}"><h3>Call For Info</h3></mat-checkbox>
-                        <mat-error>
-                          <div *ngIf="submitted && f.call_info.errors" class="invalid-feedback">
-                            <div *ngIf="f.call_info.errors.required">
-                              Accept Ts & Cs is required
-                            </div>
-                          </div>
-                        </mat-error>
-                        <p>If this checked then Call For Info text will be displayed instead of price</p>
-                      </div>
-                      <div class="item item-2" fxFlex="50%">
-                        <h3>Discounted Price</h3>
-                        <mat-form-field class="example-full-width">
-                          <mat-label>Discounted Price</mat-label>
-                          <input matInput type="number" placeholder="Discounted Price" formControlName="discounted_price" [ngClass]="{'is-invalid': submitted && f.discounted_price.errors}">
-                          <mat-error>
-                            <div *ngIf="submitted && f.discounted_price.errors">
-                              <div *ngIf="f.discounted_price.errors.required">Ad Title is required</div>
-                            </div>
-                          </mat-error>
-                        </mat-form-field>
-                        <p>Input discounted price of the product/service you are offering, if it exists(number only)</p>
-                        <br>
-                        <h3>Ad Phone</h3>
-                        <mat-form-field class="example-full-width">
-                          <mat-label>Ad Phone</mat-label>
-                          <input matInput placeholder="Ad Phone" (keypress)="keyPress($event)" minlength=10 maxlength=10
-                          formControlName="phone_number" [ngClass]="{'is-invalid': submitted && f.phone_number.errors}" />
-                          <mat-error>
-                            <div *ngIf="submitted && f.phone_number.errors">
-                              <div *ngIf="f.phone_number.errors.required">Phone number is required</div>
-                            </div>
-                          </mat-error>
-                        </mat-form-field>
-                        <p>Input phone number specific for this ad or leave empty to use the one from your profile</p>
-                      </div>
-                    </div>
-                  </div>
-                <div class="button_group">
-                  <div class="next_button">
-                    <button mat-button (click)="matgroup.selectedIndex = 1" >NEXT</button>
-                  </div>
-                </div>
+                  </mat-error>
+                </mat-form-field>
+                <p>Input title of the ad which must be unique</p>
               </div>
-          </mat-tab>
-          <mat-tab label="2.Location" >
+              <div class="item item-2" fxFlex="50%">
+                <h3>Featured Image</h3>
+                <input type="file"  class="form-control" formControlName="featured_image" [ngClass]="{'is-invalid': submitted && f.featured_image.errors}" (change)="featuredImageUpload($event)" />
+                <mat-error>
+                  <div *ngIf="submitted && f.featured_image.errors" class="invalid-feedback">
+                    <div *ngIf="f.featured_image.errors.required">Featured Image is required</div>
+                  </div>
+                </mat-error>
+                <br><br>
+                <P>Select featured image for the ad</P>
+              </div>
+            </div>
+          </div>
+          <div class="submit_ad_basic_main">
+            <h3>Ad Description <span>*</span></h3>
+          </div>
+          <ckeditor (change)="onChange($event)"></ckeditor>
+          <br>
+          <div class="submit_ad_basic_price">
+            <h3>Tags</h3>
+            <mat-form-field class="example-full-width">
+              <mat-label>Tags</mat-label>
+              <input matInput placeholder="Tags" formControlName="tags" [ngClass]="{'is-invalid': submitted && f.tags.errors}">
+              <mat-error>
+                <div *ngIf="submitted && f.tags.errors">
+                  <div *ngIf="f.tags.errors.required">Tags is required</div>
+                </div>
+              </mat-error>
+            </mat-form-field>
+            <p>Input comma separated tags</p>
+            <div class="container"
+                 fxLayout
+                 fxLayout.xs="column"
+                 fxLayoutAlign="center"
+                 fxLayoutGap="20px"
+                 fxLayoutGap.xs="0">
+              <div class="item item-1" fxFlex="50%">
+                <h3>Price</h3>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Price</mat-label>
+                  <input matInput type="number" placeholder="Price" formControlName="price" [ngClass]="{'is-invalid': submitted && f.price.errors}">
+                  <mat-error>
+                    <div *ngIf="submitted && f.price.errors">
+                      <div *ngIf="f.price.errors.required">Ad Title is required</div>
+                    </div>
+                  </mat-error>
+                </mat-form-field>
+                <p>Input price of the product/service you are offering(number only). Put 0 for free</p>
+                <br>
+                <mat-checkbox formControlName="call_info" [ngClass]="{'is-inValid': submitted && f.call_info.errors}"><h3>Call For Info</h3></mat-checkbox>
+                <mat-error>
+                  <div *ngIf="submitted && f.call_info.errors" class="invalid-feedback">
+                    <div *ngIf="f.call_info.errors.required">
+                      Accept Ts & Cs is required
+                    </div>
+                  </div>
+                </mat-error>
+                <p>If this checked then Call For Info text will be displayed instead of price</p>
+              </div>
+              <div class="item item-2" fxFlex="50%">
+                <h3>Discounted Price</h3>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Discounted Price</mat-label>
+                  <input matInput type="number" placeholder="Discounted Price" formControlName="discounted_price" [ngClass]="{'is-invalid': submitted && f.discounted_price.errors}">
+                  <mat-error>
+                    <div *ngIf="submitted && f.discounted_price.errors">
+                      <div *ngIf="f.discounted_price.errors.required">Ad Title is required</div>
+                    </div>
+                  </mat-error>
+                </mat-form-field>
+                <p>Input discounted price of the product/service you are offering, if it exists(number only)</p>
+                <br>
+                <h3>Ad Phone</h3>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Ad Phone</mat-label>
+                  <input matInput placeholder="Ad Phone" (keypress)="keyPress($event)" minlength=10 maxlength=10
+                         formControlName="phone_number" [ngClass]="{'is-invalid': submitted && f.phone_number.errors}" />
+                  <mat-error>
+                    <div *ngIf="submitted && f.phone_number.errors">
+                      <div *ngIf="f.phone_number.errors.required">Phone number is required</div>
+                    </div>
+                  </mat-error>
+                </mat-form-field>
+                <p>Input phone number specific for this ad or leave empty to use the one from your profile</p>
+              </div>
+            </div>
+            <h3>Location<span>*</span></h3>
+            <mat-form-field class="example-full-width">
+              <mat-label>Location</mat-label>
+              <input matInput placeholder="Enter a location" formControlName="location" [ngClass]="{'is-invalid': submitted && f.location.errors}" />
+              <mat-error>
+                <div *ngIf="submitted && f.location.errors">
+                  <div *ngIf="f.location.errors.required"></div>
+                </div>
+              </mat-error>
+            </mat-form-field>
             <br>
-            <div class="submit_ad_location">
-              <h3>Location<span>*</span></h3>
-              <mat-form-field class="example-full-width">
-                <mat-label>Location</mat-label>
-                <input matInput placeholder="Enter a location" formControlName="location" [ngClass]="{'is-invalid': submitted && f.location.errors}" />
-                <mat-error>
-                  <div *ngIf="submitted && f.location.errors">
-                    <div *ngIf="f.location.errors.required"></div>
-                  </div>
-                </mat-error>
-              </mat-form-field>
+            <div class="location_map" id="location_map" #map style="height: 500px;"></div>
+            <br>
+            <h3>Ad Category <span>*</span></h3>
+            <mat-form-field>
               <br>
-              <div class="location_map" id="location_map" #map style="height: 500px;"></div>
-              <br>
-              <hr>
-              <div class="button_group">
-                <div class="preview_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 0" >PREVIOUS</button>
-                </div>
-                <div  class="next_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 2" >NEXT</button>
-                </div>
-              </div>
-            </div>
-          </mat-tab>
-          <mat-tab label="3.Category">
-            <div class="submit_ad_category">
-              <br>
-              <h3>Ad Category <span>*</span></h3>
-              <mat-form-field>
-                <br>
-                <mat-label>-Select-</mat-label>
-                <mat-select formControlName="category" [ngClass]="{'is-invalid': submitted && f.category.errors}">
-                  <mat-option *ngFor="let item of category" [value]="item.viewValue">
-                    {{item.viewValue}}
-                  </mat-option>
-                </mat-select>
-                <mat-error>
-                  <div *ngIf="submitted && f.category.errors">
-                    <div *ngIf="f.category.errors.required">Category is required</div>
-                  </div>
-                </mat-error>
-              </mat-form-field>
-              <p>Select category of the ad</p>
-              <hr>
-              <div class="button_group">
-                <div class="preview_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 1" >PREVIOUS</button>
-                </div>
-                <div  class="next_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 3" >NEXT</button>
-                </div>
-              </div>
-            </div>
-          </mat-tab>
-          <mat-tab label="4.Media">
-            <div class="submit_ad_media">
-              <br>
-              <h3>Ad Images (Max 5 images)</h3>
-              <input type="file" formControlName="ad_image" multiple=""
-                     (change)="advertiseImage($event)" [ngClass]="{'is-invalid': submitted && f.ad_image.errors}"
-              />
-                <mat-error>
-                  <div *ngIf="submitted && f.ad_image.errors">
-                    <div *ngIf="f.ad_image.errors.required">Advertise Image is required</div>
-                  </div>
-                </mat-error>
-              <img *ngFor="let url of images" [src]="url" height="100" width="100" style="margin: 3px;">
-              <p>Select additional images for the ad
-              </p>
-              <br>
-              <h3>Ad Videos(Max 1 video)</h3>
-              <input type="file" formControlName="ad_video" (change)="getVideoFile($event)" [ngClass]="{'is-invalid': submitted && f.ad_video.errors}">
+              <mat-label>-Select-</mat-label>
+              <mat-select formControlName="category" [ngClass]="{'is-invalid': submitted && f.category.errors}">
+                <mat-option *ngFor="let item of category" [value]="item.viewValue">
+                  {{item.viewValue}}
+                </mat-option>
+              </mat-select>
               <mat-error>
-                <div *ngIf="submitted && f.ad_video.errors">
-                  <div *ngIf="f.ad_video.errors.required">
-                    Advertise Video is required
-                  </div>
+                <div *ngIf="submitted && f.category.errors">
+                  <div *ngIf="f.category.errors.required">Category is required</div>
                 </div>
               </mat-error>
-              <video controls height="100" width="100">
-                <source [src]="myVideo" type="video/mp4">
-              </video>
-              <p>Select additional videos for the ad</p>
+            </mat-form-field>
+            <p>Select category of the ad</p>
+            <br>
+            <h3>Ad Images (Max 5 images)</h3>
+            <input type="file" formControlName="ad_image" multiple=""
+                   (change)="advertiseImage($event)" [ngClass]="{'is-invalid': submitted && f.ad_image.errors}"
+            />
+            <mat-error>
+              <div *ngIf="submitted && f.ad_image.errors">
+                <div *ngIf="f.ad_image.errors.required">Advertise Image is required</div>
+              </div>
+            </mat-error>
+            <img *ngFor="let url of images" [src]="url" height="100" width="100" style="margin: 3px;">
+            <p>Select additional images for the ad
+            </p>
+            <br>
+            <h3>Ad Videos(Max 1 video)</h3>
+            <input type="file" formControlName="ad_video" (change)="getVideoFile($event)" [ngClass]="{'is-invalid': submitted && f.ad_video.errors}">
+            <mat-error>
+              <div *ngIf="submitted && f.ad_video.errors">
+                <div *ngIf="f.ad_video.errors.required">
+                  Advertise Video is required
+                </div>
+              </div>
+            </mat-error>
+            <video controls height="100" width="100">
+              <source [src]="myVideo" type="video/mp4">
+            </video>
+            <p>Select additional videos for the ad</p>
+            <br>
+            <span>Lorem IP is</span>
+            <br>
+            <br>
+            <mat-checkbox formControlName="acceptTerms" [ngClass]="{'is-invalid': submitted && f.acceptTerms.errors}">I have read and accept the terms</mat-checkbox>
+            <mat-error>
+              <div *ngIf="submitted && f.acceptTerms.errors">
+                <div *ngIf="f.acceptTerms.errors.required ">
+                  Accept Ts & Cs is required
+                </div>
+              </div>
+            </mat-error>
+            <br>
+            <span>Each ad will last for 30 days</span>
+            <br>
+            <div class="submit_final_price">
+              <div>
+                <span>Basic ad:</span>
+                <span>CHF0.00</span>
+              </div>
               <br>
-              <hr>
-              <div class="button_group">
-                <div class="preview_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 2" >PREVIOUS</button>
-                </div>
-                <div  class="next_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 4" >NEXT</button>
-                </div>
+              <div>
+                <span>Total:</span>
+                <span>CHF0.00</span>
               </div>
             </div>
-          </mat-tab>
-          <mat-tab label="5.Terms">
-            <div class="submit_ad_terms">
-              <br>
-              <span>Lorem IP is</span>
-              <br>
-              <br>
-              <mat-checkbox formControlName="acceptTerms" [ngClass]="{'is-invalid': submitted && f.acceptTerms.errors}">I have read and accept the terms</mat-checkbox>
-              <mat-error>
-                <div *ngIf="submitted && f.acceptTerms.errors">
-                  <div *ngIf="f.acceptTerms.errors.required ">
-                    Accept Ts & Cs is required
-                  </div>
-                </div>
-              </mat-error>
-              <br>
-              <hr>
-              <div class="button_group">
-                <div class="preview_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 3" >PREVIOUS</button>
-                </div>
-                <div  class="next_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 5" >NEXT</button>
+            <br>
+            <mat-checkbox formControlName="make_featured" [ngClass]="{'is-invalid': submitted && f.make_featured.errors}">Make ad featured</mat-checkbox>
+            <mat-error>
+              <div *ngIf="submitted && f.make_featured.errors">
+                <div *ngIf="f.make_featured.errors.required ">
+                  Accept Ts & Cs is required
                 </div>
               </div>
-            </div>
-          </mat-tab>
-          <mat-tab label="6.Final">
-            <div class="submit_ad_final">
-              <br>
-              <span>Each ad will last for 30 days</span>
-              <br>
-              <hr>
-              <br>
-              <div class="submit_final_price">
-                <div>
-                  <span>Basic ad:</span>
-                  <span>CHF0.00</span>
-                </div>
-                <br>
-                <div>
-                  <span>Total:</span>
-                  <span>CHF0.00</span>
-                </div>
-              </div>
-              <br>
-              <mat-checkbox formControlName="make_featured" [ngClass]="{'is-invalid': submitted && f.make_featured.errors}">Make ad featured</mat-checkbox>
-              <mat-error>
-                <div *ngIf="submitted && f.make_featured.errors">
-                  <div *ngIf="f.make_featured.errors.required ">
-                    Accept Ts & Cs is required
-                  </div>
-                </div>
-              </mat-error>
-              <br><br>
-              <button mat-button class="submit">SUBMIT AD</button>
-              <hr>
-              <div class="button_group">
-                <div class="preview_button">
-                  <button mat-button (click)="matgroup.selectedIndex = 4" >PREVIOUS</button>
-                </div>
-              </div>
-            </div>
-          </mat-tab>
-          <button type="submit">Submit</button>
-      </mat-tab-group>
+            </mat-error>
+            <br><br>
+            <button mat-button class="submit">SUBMIT AD</button>
+          </div>
+        </div>
       </form>
     </mat-card>
   </div>

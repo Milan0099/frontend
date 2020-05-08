@@ -1,0 +1,25 @@
+<div class="confirm_password">
+  <mat-card>
+    <h3>Confirm Email</h3>
+    <hr>
+    <form class="confirm_email" [formGroup]="confirmEmail" (ngSubmit)="onSubmit()">
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Input your Email</mat-label>
+        <input matInput placeholder="write your email" formControlName="email"
+               [ngClass]="{'is-invalid': submitted && f.email.errors}">
+        <mat-error>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <br><br>
+      <button mat-raised-button color="primary"
+              type="submit">Confirm Email
+      </button>
+    </form>
+    <br>
+    <button mat-flat-button (click)="click_back()">Back</button>
+  </mat-card>
+</div>

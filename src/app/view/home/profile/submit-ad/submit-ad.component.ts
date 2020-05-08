@@ -50,6 +50,10 @@ export class SubmitAdComponent implements OnInit {
 
   ngOnInit() {
     this.current_email = localStorage.getItem('email');
+    this.map = L.map('location_map').setView([46.204391, 6.143158], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(this.map);
 
     this.submit_ad = this.formBuilder.group({
       title: ['', Validators.required],
@@ -80,16 +84,6 @@ export class SubmitAdComponent implements OnInit {
     let inputChar = String.fromCharCode(event.charCode);
     if (event.keyCode != 8 && !pattern.test(inputChar)) {
       event.preventDefault();
-    }
-  }
-
-  tabClick(tab) {
-    let checkStatus = document.getElementsByClassName('location_map leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag').length;
-    if (tab.index === 1 && checkStatus != 1) {
-      this.map = L.map('location_map').setView([46.204391, 6.143158], 5);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(this.map);
     }
   }
 

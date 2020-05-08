@@ -14,12 +14,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { VerifyComponent } from './verify/verify.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { ConfirmVerifyComponent } from './confirm-verify/confirm-verify.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     VerifyComponent,
+    ResetPasswordComponent,
+    ConfirmEmailComponent,
+    ConfirmVerifyComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +40,7 @@ import { VerifyComponent } from './verify/verify.component';
     MatFormFieldModule,
     MatIconModule,
     MatCheckboxModule,
+    MatDialogModule,
 
     RouterModule.forChild([
       {
@@ -50,6 +58,14 @@ import { VerifyComponent } from './verify/verify.component';
           {
             path: 'login',
             component: LoginComponent
+          },
+          {
+            path: 'confirmEmail',
+            component: ConfirmEmailComponent
+          },
+          {
+            path: 'confirmVerify',
+            component: ConfirmVerifyComponent
           }
         ]
       }
