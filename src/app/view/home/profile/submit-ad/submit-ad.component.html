@@ -89,6 +89,8 @@
                     </div>
                   </div>
                 </mat-error>
+                <br>
+                <br>
                 <p>If this checked then Call For Info text will be displayed instead of price</p>
               </div>
               <div class="item item-2" fxFlex="50%">
@@ -148,35 +150,44 @@
             </mat-form-field>
             <p>Select category of the ad</p>
             <br>
-            <h3>Ad Images (Max 5 images)</h3>
-            <input type="file" formControlName="ad_image" multiple=""
-                   (change)="advertiseImage($event)" [ngClass]="{'is-invalid': submitted && f.ad_image.errors}"
-            />
-            <mat-error>
-              <div *ngIf="submitted && f.ad_image.errors">
-                <div *ngIf="f.ad_image.errors.required">Advertise Image is required</div>
+            <div class="container"
+                 fxLayout
+                 fxLayout.xs="column"
+                 fxLayoutAlign="center"
+                 fxLayoutGap="10px"
+                 fxLayoutGap.xs="0">
+              <div class="item item-1" fxFlex="50%">
+                <h3>Ad Images (Max 5 images)</h3>
+                <input type="file" formControlName="ad_image" multiple=""
+                       (change)="advertiseImage($event)" [ngClass]="{'is-invalid': submitted && f.ad_image.errors}"
+                />
+                <mat-error>
+                  <div *ngIf="submitted && f.ad_image.errors">
+                    <div *ngIf="f.ad_image.errors.required">Advertise Image is required</div>
+                  </div>
+                </mat-error>
+                <img *ngFor="let url of images" [src]="url" height="100" width="100" style="margin: 3px;">
+                <p>Select additional images for the ad
+                </p>
               </div>
-            </mat-error>
-            <img *ngFor="let url of images" [src]="url" height="100" width="100" style="margin: 3px;">
-            <p>Select additional images for the ad
-            </p>
-            <br>
-            <h3>Ad Videos(Max 1 video)</h3>
-            <input type="file" formControlName="ad_video" (change)="getVideoFile($event)" [ngClass]="{'is-invalid': submitted && f.ad_video.errors}">
-            <mat-error>
-              <div *ngIf="submitted && f.ad_video.errors">
-                <div *ngIf="f.ad_video.errors.required">
-                  Advertise Video is required
-                </div>
+              <div class="item item-2" fxFlex="50%">
+                <h3>Ad Videos(Max 1 video)</h3>
+                <input type="file" formControlName="ad_video" (change)="getVideoFile($event)" [ngClass]="{'is-invalid': submitted && f.ad_video.errors}">
+                <mat-error>
+                  <div *ngIf="submitted && f.ad_video.errors">
+                    <div *ngIf="f.ad_video.errors.required">
+                      Advertise Video is required
+                    </div>
+                  </div>
+                </mat-error>
+                <video controls height="100" width="100">
+                  <source [src]="myVideo" type="video/mp4">
+                </video>
+                <p>Select additional videos for the ad</p>
               </div>
-            </mat-error>
-            <video controls height="100" width="100">
-              <source [src]="myVideo" type="video/mp4">
-            </video>
-            <p>Select additional videos for the ad</p>
+            </div>
             <br>
             <span>Lorem IP is</span>
-            <br>
             <br>
             <mat-checkbox formControlName="acceptTerms" [ngClass]="{'is-invalid': submitted && f.acceptTerms.errors}">I have read and accept the terms</mat-checkbox>
             <mat-error>
@@ -187,7 +198,7 @@
               </div>
             </mat-error>
             <br>
-            <span>Each ad will last for 30 days</span>
+            <p>Each ad will last for 30 days</p>
             <br>
             <div class="submit_final_price">
               <div>

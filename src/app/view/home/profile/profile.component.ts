@@ -22,7 +22,9 @@ export class ProfileComponent implements OnInit {
   public colors = [
     {id: 1, title: 'My Ads', status: false},
     {id: 2, title: 'Submit Ad', status: true},
-    {id: 3, title: 'Delete My Profile', status: false},
+    {id: 3, title: 'My Profile', status: false},
+
+    {id: 4, title: 'Delete My Profile', status: false},
   ];
 
   radius: Radius[] = [

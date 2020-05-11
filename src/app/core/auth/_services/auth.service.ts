@@ -71,6 +71,14 @@ export class AuthService {
     return this.http.post(BASE_URL + 'add_profile', profile);
   }
 
+  companyLogo(logo: File): Observable<any> {
+    console.log(logo);
+    const endpoint = BASE_URL + 'logoImage';
+    const formData: FormData = new FormData();
+    formData.append('file', logo, logo.name);
+    return this.http.post(endpoint, formData)
+  }
+
   submit_adv(submit_info): Observable<any> {
     return this.http.post(BASE_URL + 'advertise', submit_info);
   }

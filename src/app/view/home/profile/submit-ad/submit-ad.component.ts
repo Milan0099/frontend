@@ -57,18 +57,18 @@ export class SubmitAdComponent implements OnInit {
 
     this.submit_ad = this.formBuilder.group({
       title: ['', Validators.required],
-      tags: ['', Validators.required],
-      featured_image: ['', Validators.required],
-      price: ['', Validators.required],
+      tags: ['', ],
+      featured_image: [''],
+      price: ['', ],
       call_info: [false,],
-      discounted_price: ['',Validators.required],
-      phone_number: ['', Validators.required],
+      discounted_price: [''],
+      phone_number: [''],
       location: ['', Validators.required],
       category: ['', Validators.required],
-      ad_image: ['', ],
-      ad_video: ['', ],
-      acceptTerms: [false, ],
-      make_featured: [false, ]
+      ad_image: [''],
+      ad_video: [''],
+      acceptTerms: [false],
+      make_featured: [false]
     })
   }
   get f() {
@@ -132,21 +132,25 @@ export class SubmitAdComponent implements OnInit {
 
       console.log(this.submit_ad.value);
       if (res.success === true) {
-        this.userService.upload_advertise(this.user_file).subscribe(res => {
-          console.log('successfully upload', res)
-        });
-
-        this.userService.multi_image(this.multiImage).subscribe(res => {
-          console.log('successfully multi image uploaded', res)
-        });
-
+        if (this.submit_ad.value.featured_image) {
+          this.userService.upload_advertise(this.user_file).subscribe(res => {
+            console.log('successfully upload', res)
+          });
+        }
+        if (this.submit_ad.value.images) {
+          this.userService.multi_image(this.multiImage).subscribe(res => {
+            console.log('successfully multi image uploaded', res)
+          });
+        }
         if (this.submit_ad.value.ad_video) {
           this.userService.upload_video(this.myVideo).subscribe(res => {
             console.log('video uploaded', res);
           })
         }
+        alert(res['msg']);
         window.history.go(0)
       }
     });
   }
+
 }

@@ -1,67 +1,105 @@
 <div class="my_profile_basic">
   <form [formGroup]="add_profile" (ngSubmit)="onSubmit()">
-      <div class="container"
-           fxLayout
-           fxLayout.xs="column"
-           fxLayoutAlign="center"
-           fxLayoutGap="10px"
-           fxLayoutGap.xs="0">
-
-            <div class="item item-1" fxFlex="50%">
-              <h3>First Name</h3>
-              <mat-form-field class="example-full-width">
-                <mat-label>First Name</mat-label>
-                <input matInput placeholder="First Name"
-                       formControlName="firstName"
-                       [ngClass]="{'is-invalid': submitted && f.firstName.errors}"
-                >
-                <mat-error>
-                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                  </div>
-                </mat-error>
-              </mat-form-field>
-              <br><br>
-              <h3>Your City</h3>
-              <mat-form-field class="example-full-width">
-                <mat-label>Your City</mat-label>
-                <input matInput placeholder="Your City"
-                                formControlName="yourCity"
-                                [ngClass]="{'is-invalid': submitted && f.yourCity.errors}"
-                >
-                <mat-error>
-                  <div *ngIf="submitted && f.yourCity.errors" class="invalid-feedback">
-                    <div *ngIf="f.yourCity.errors.required">Your City is required</div>
-                  </div>
-                </mat-error>
-              </mat-form-field>
-            </div>
-
-            <div class="item item-2" fxFlex="50%" fxFlexOrder="3">
-              <h3>Last Name</h3>
-              <mat-form-field class="example-full-width">
-                <mat-label>Last Name</mat-label>
-                <input matInput placeholder="Last Name"
-                                formControlName="lastName"
-                                [ngClass]="{'is-invalid': submitted && f.lastName.errors}"
-                >
-                <mat-error>
-                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-                  </div>
-                </mat-error>
-              </mat-form-field>
-              <br><br>
-              <h3>Your Email</h3>
-              <mat-form-field class="example-full-width">
-                <mat-label>{{current_email}}</mat-label>
-                <input matInput value="{{current_email}}" placeholder="Email"
-                                 readonly>
-              </mat-form-field>
-            </div>
+    <div class="container"
+         fxLayout
+         fxLayout.xs="column"
+         fxLayoutAlign="center"
+         fxLayoutGap="10px"
+         fxLayoutGap.xs="0">
+      <div class="item item-1" fxFlex="50%">
+        <h2>My details</h2>
+        <p>Profile type</p>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" #group="matButtonToggleGroup" multiple="false" formControlName='endpoints'
+                                 [(ngModel)]="myFlagForButtonToggle">
+          <mat-button-toggle *ngFor="let item of endpointToggleOptions;" [value]="item">{{item}}</mat-button-toggle>
+        </mat-button-toggle-group>
+        <br><br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Surname</mat-label>
+          <input matInput placeholder="Surname" formControlName="surname">
+        </mat-form-field>
+        <p>e-mail</p>
+        <div class="email">
+          <mat-form-field class="example-full-width">
+            <input matInput [value]="current_email" readonly>
+          </mat-form-field>
+          <!--<mat-icon> border_color</mat-icon>-->
+        </div>
+        <div class="phone_number">
+          <mat-form-field class="example-full-width">
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="phone" formControlName="phoneNumber" (keypress)="pNumber($event)" minlength=10 maxlength=10>
+          </mat-form-field>
+          <br>
+          <mat-checkbox>Hide phone number</mat-checkbox>
+        </div>
         <br>
+        <div class="address">
+          <mat-form-field class="example-full-width">
+            <mat-label>website address</mat-label>
+            <input matInput placeholder="website address" formControlName="websiteAddress">
+          </mat-form-field>
+        </div>
+        <br>
+        <p>Company logo</p>
+        <div class="company_logo">
+          <ngx-dropzone (change)="onSelect($event)">
+            <ngx-dropzone-label>
+              Click here or drag the picture in
+            </ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+          </ngx-dropzone>
+        </div>
       </div>
-      <br>
-      <button mat-button type="submit">SAVE CHANGES</button>
+      <div class="item item-2" fxFlex="50%">
+        <h3>my location</h3>
+        <div class="address">
+          <mat-form-field class="example-full-width">
+            <mat-label>address</mat-label>
+            <input matInput placeholder="address" formControlName="address">
+          </mat-form-field>
+        </div>
+        <br>
+        <p>Postcode</p>
+        <div class="address">
+          <mat-form-field class="example-full-width">
+            <mat-label>8047</mat-label>
+            <input matInput placeholder="8047" formControlName="postCode" (keypress)="pCode($event)" minlength=4 maxlength=4>
+          </mat-form-field>
+        </div>
+        <p>Canton</p>
+        <div class="canton">
+          <mat-form-field>
+            <br>
+            <mat-label>-Select-</mat-label>
+            <mat-select formControlName="canton" [ngClass]="{'is-invalid': submitted && f.canton.errors}">
+              <mat-option *ngFor="let item of category" [value]="item.viewValue">
+                {{item.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="container"
+         fxLayout
+         fxLayout.xs="column"
+         fxLayoutAlign="center"
+         fxLayoutGap="10px"
+         fxLayoutGap.xs="0">
+      <div class="item item-1" fxFlex="50%"></div>
+      <div class="item item-2" fxFlex="50%">
+        <div class="save_button">
+          <div>
+            <button mat-button>Abort</button>
+          </div>
+          <div class="save">
+            <button  mat-raised-button color="warn"  type="submit">to save</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
 </div>

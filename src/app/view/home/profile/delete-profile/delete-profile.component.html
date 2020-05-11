@@ -10,17 +10,19 @@
   <br>
   <div class="delete_profile_main">
     <mat-card>
-      <h1>My Email is <b>{{myEmail}}</b></h1>
-      <br>
-      <h2>My adv is <b>{{totalAdv}}</b> </h2>
-      <br>
       <h2>
-        Do you want to delete your account eventhough?
+        <span>Delete my Profile, I do not need it any more.</span> &nbsp;
+        <button mat-mini-fab color="primary" (click)="profileDelete()">
+          <ion-icon name="alert-outline"></ion-icon>
+        </button>
       </h2>
-      <div class="button_group">
-        <button mat-flat-button color="primary" (click)="back_button()">Back</button>
-        <button mat-flat-button color="warn" (click)="delete()">Ok</button>
-      </div>
+      <br>
+      <h3>
+        <span>Deletion of account</span>
+      </h3>
+
+      <p>You can delete your account, in this case all your data will be deleted from our database. Have you had a Premium-membership? In such a case will be this membership immediately cancelled.</p>
+
     </mat-card>
   </div>
 </div>

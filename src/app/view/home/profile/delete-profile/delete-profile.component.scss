@@ -4,3 +4,12 @@
 .delete_profile_main .button_group>button {
   margin: 10px;
 }
+.delete_profile_main h2>span {
+  color: red;
+}
+.delete_profile_main h3>span {
+  color: red;
+}
+.delete_profile_main h2 mat-icon {
+  color: darkgray;
+}

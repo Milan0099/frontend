@@ -17,7 +17,8 @@ export class MyAdsComponent implements OnInit {
 
   constructor(
     private userService: AuthService
-  ) { }
+  ) {
+  }
 
   style: Styles[] = [
     {id: 1, name: 'All', status: true},
@@ -27,25 +28,30 @@ export class MyAdsComponent implements OnInit {
 
   current_email: string;
   public myAdv: any;
+
+
   ngOnInit(): void {
     this.current_email = localStorage.getItem('email');
 
     this.userService.getAllAdv({'email': this.current_email}).subscribe(res => {
-      console.log('my adv--', res['data']);
-      this.myAdv = res['data'];
-    })
+      let resp = res['data'];
+      resp.sort(function (a, b) {
+        return b['publish'] > a['publish'] ? 1 : -1;
+      });
+      this.myAdv = resp;
+    });
   }
 
   change_style(id) {
     let status_name = {};
     this.style.forEach(function (item) {
-      item.id == id ? item.status = true: item.status = false;
+      item.id == id ? item.status = true : item.status = false;
       if (item.id == id) {
         status_name = item.name;
       }
     });
     this.userService.getStatus({'myEmail': this.current_email, 'status': status_name}).subscribe(res => {
-      this.myAdv = res['msg']
-    })
+      this.myAdv = res['msg'];
+    });
   }
 }

@@ -2,7 +2,10 @@
   width: 100%;
   margin: auto;
 }
-
+.user_login>mat-card h2 {
+  text-align: center;
+  border-bottom: 1px solid #1976d2;
+}
 @media (max-width: 768px) {
   .user_login>mat-card {
     width: 360px;

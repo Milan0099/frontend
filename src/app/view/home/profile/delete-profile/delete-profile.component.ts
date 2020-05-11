@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/auth/_services';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 
 @Component({
   selector: 'app-delete-profile',
@@ -11,9 +13,11 @@ export class DeleteProfileComponent implements OnInit {
 
   constructor(
     private userService: AuthService,
-    private _router: Router
+    private _router: Router,
+    private dialog: MatDialog
   ) { }
 
+  success: string;
   myEmail: string;
   totalAdv: string;
   ngOnInit(): void {
@@ -24,22 +28,15 @@ export class DeleteProfileComponent implements OnInit {
     })
   }
 
-  back_button() {
-    this._router.navigate(['home/profile'])
-  }
 
-  delete() {
-    if (confirm('Do you want to delete your account')) {
-      this.userService.delete({'email': this.myEmail}).subscribe(res => {
-        if (res['success'] === true) {
-          localStorage.clear();
-          this._router.navigate(['auth/login'])
-        }
-      })
-    }
-    else {
-      return false;
-    }
+  profileDelete(): void {
+    const dialogRef = this.dialog.open(DeleteConfirmComponent, {
+      width: '370px',
+      data: {myData: this.myEmail}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.success = result;
+    })
   }
 
 }

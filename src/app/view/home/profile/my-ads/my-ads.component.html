@@ -16,7 +16,7 @@
         <mat-card>
           <a><p>Edit<mat-icon>arrow_right_alt</mat-icon></p></a>
           <div class="my_ads_view">
-            <div> <img src="http://localhost:4201/upload/{{item.featuredImage}}" alt=""></div>
+            <div *ngIf="item.featuredImage" > <img src="http://localhost:4201/upload/{{item.featuredImage}}" alt=""></div>
             <div class="adv_main_body">
               <h2>{{item.title}}</h2>
               <h4 [innerHTML] = "item.description"></h4>
